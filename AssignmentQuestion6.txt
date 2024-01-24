@@ -1,0 +1,4 @@
+
+Q6. Describe the purpose and usage of the localStorage and sessionStorage APIs in web development. Give suitable examples for each.
+
+# Ans - 
