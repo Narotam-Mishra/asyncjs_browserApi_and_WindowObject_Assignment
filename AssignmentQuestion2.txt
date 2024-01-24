@@ -1,0 +1,34 @@
+
+Q2. What is same-origin policy in the context of AJAX requests, and how can you work around it?
+
+# Ans - The Same-Origin Policy is a security feature implemented by web browsers to prevent web pages from making requests to a different domain than the one that served the original web page. This policy helps protect users from potential security vulnerabilities, such as Cross-Site Request Forgery (CSRF) and Cross-Site Scripting (XSS) attacks.
+
+# In the context of AJAX requests, the Same-Origin Policy means that a web page loaded from one domain (origin) is restricted from making XMLHttpRequests to a different domain. This restriction includes differences in protocol (HTTP/HTTPS), subdomains, and port numbers.
+
+# For example, if a web page is loaded from https://example.com, the Same-Origin Policy would prevent AJAX requests to http://api.example.com or https://subdomain.example.com. This policy helps prevent malicious scripts from making unauthorized requests to other domains on behalf of the user.
+
+# Cross-Origin Resource Sharing (CORS) :-
+To work around the Same-Origin Policy and enable cross-origin requests, server-side and client-side solutions are available. One common solution is Cross-Origin Resource Sharing (CORS), which involves configuring the server to include appropriate HTTP headers in its responses. These headers specify which origins are allowed to access the resources on the server.
+
+# On the server side, we can include the following HTTP headers in the response:
+
+a). Access-Control-Allow-Origin: Specifies the origins that are permitted to access the resource.
+b). Access-Control-Allow-Methods: Specifies the HTTP methods (e.g., GET, POST) allowed when accessing the resource.
+c). Access-Control-Allow-Headers: Specifies which headers can be used during the actual request.
+
+# Example code using node js & express :-
+
+const express = require('express');
+const app = express();
+
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', 'https://allowed-origin.com');
+    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
+    next();
+});
+
+# By configuring the appropriate CORS headers on the server, the browser allows the web page served from a different origin to make AJAX requests to the specified server.
+
+# Note - It is important to keep in mind that while CORS is a common solution, other techniques such as JSONP (JSON with Padding) and server-side proxies can also be used to work around the Same-Origin Policy. However, CORS is the recommended and widely adopted approach for modern web applications.
+

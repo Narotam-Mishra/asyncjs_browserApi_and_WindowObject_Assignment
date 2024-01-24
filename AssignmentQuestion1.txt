@@ -1,0 +1,53 @@
+
+Q1. Define XMLHttpRequest(XHR) object, and How it is used in AJAX ?
+
+# Ans - The XMLHttpRequest (XHR) object is a JavaScript API that provides an easy way to make asynchronous HTTP requests to a server. It is a key component in the implementation of Asynchronous JavaScript and XML (AJAX) that is a technique used to create dynamic and interactive web pages by updating content asynchronously, without requiring a full page reload.
+
+# Here's a brief overview of how the XMLHttpRequest object is used in AJAX :-
+
+1). Create an instance of XMLHttpRequest :-
+
+# Example code :-
+let xhr = new XMLHttpRequest();
+
+2). Specify the request details :-
+
+a). Set the request method (GET, POST, etc.).
+
+b). Specify the URL of the server-side resource.
+
+c). Optionally, configure whether the request should be asynchronous (default) or synchronous.
+
+# Example code :-
+
+xhr.open("GET", "https://example.com/data", true);
+
+3). Set up event listeners :- 
+
+a). Define functions to handle different stages of the HTTP request, such as when it is opened, when data is received, or if an error occurs.
+
+# Example code :-
+
+xhr.onreadystatechange = function () {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+        // Handle the response data
+        console.log(xhr.responseText);
+    }
+};
+
+4). Send the request :-
+
+# code example 
+
+xhr.send();
+
+# If it's a POST request, you can send data along with the request by passing it as an argument to the send method :-
+
+# Example 
+xhr.send("param1=value1&param2=value2");
+
+# For more complex data, we can use JSON.stringify for sending JSON data.
+
+# In above example, the onreadystatechange event is triggered whenever the readyState property changes, and you typically check if the readyState is 4 (request is complete) and the status is 200 (HTTP OK) to ensure a successful response.
+
+# It's worth noting that modern web development often uses the Fetch API, which provides a more powerful and flexible interface for making HTTP requests. However, understanding XMLHttpRequest is still valuable for legacy code and for a deeper understanding of how AJAX works.
