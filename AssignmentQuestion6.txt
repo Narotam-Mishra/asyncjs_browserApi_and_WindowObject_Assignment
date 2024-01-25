@@ -1,4 +1,59 @@
 
 Q6. Describe the purpose and usage of the localStorage and sessionStorage APIs in web development. Give suitable examples for each.
 
-# Ans - 
+# Ans - The localStorage and sessionStorage APIs in web development are part of the Web Storage API, which provides a way for web applications to store key-value pairs locally within a user's browser. Both localStorage and sessionStorage offer a simple and convenient means of persisting data on the client side.
+
+1). localStorage :- 
+
+# Purpose :- The localStorage API is designed to store key-value pairs persistently across browser sessions. Data stored using localStorage remains available even when the user closes and reopens the browser.
+
+# Usage :- 
+a). To store data in localStorage, you can use the setItem method.
+
+# Example code :-
+// Storing data in localStorage
+localStorage.setItem('username', 'JohnDoe');
+
+b). To retrieve data from localStorage, use the getItem method.
+
+# Example code :-
+// Retrieving data from localStorage
+const username = localStorage.getItem('username');
+console.log(username); // Outputs: JohnDoe
+
+c). To remove an item from localStorage, use the removeItem method.
+
+# Example code :-
+// Removing data from localStorage
+localStorage.removeItem('username');
+
+2). sessionStorage :-
+
+# Purpose :- The sessionStorage API is similar to localStorage but is designed to store data for the duration of a single browser session. Data stored using sessionStorage is accessible only during the page session and is cleared when the user closes the tab or window.
+
+# Usage :-
+
+a). Storing data in sessionStorage :
+
+# Example code :-
+// Storing data in sessionStorage
+sessionStorage.setItem('theme', 'dark');
+
+b). Retrieving data from sessionStorage :
+
+# Example code :-
+// Retrieving data from sessionStorage
+const theme = sessionStorage.getItem('theme');
+console.log(theme); // Outputs: dark
+
+c). Removing data from sessionStorage :
+
+# Example code :-
+// Removing data from sessionStorage
+sessionStorage.removeItem('theme');
+
+
+# Example Use Case :-
+Consider a scenario where you want to store a user's preferred theme across sessions using localStorage, and temporary data like a user's shopping cart during a session using sessionStorage. Example code is available in 'ExampleQ6.js' file
+
+# In this example, the user's preferred theme is stored in localStorage, ensuring it persists across sessions. Meanwhile, the shopping cart items are stored in sessionStorage for the duration of the current session.
